@@ -12,14 +12,6 @@ Bearing_Width          = 14;
 // This is the additional width added to allow the bearing clearence during rotation
 Bearing_Clearing_Tolerance = 1;
 
-/* [ Core parameters] */
-// Origin Point of model (and bearing center-point)
-origin = [0,0,0];
-// Final object rotation
-origin_rotation = [90,0,0];
-// this is the general tolerance used for slip-fittings
-tolerance = 0.1;
-
 /* [ Fitting Core Values] */
 // Thickness of door sheet
 Sheet_Material_Width = 9;
@@ -34,14 +26,26 @@ Bracket_Wall = 4;
 // Diameter of screws used to attach plate to sheet-Sheet_Material_Calc
 Screw_diameter = 5;
 
+/* [ Core parameters] */
+// Origin Point of model (and bearing center-point)
+origin = [0,Bearing_Width + Bracket_Wall + Bearing_Clearing_Tolerance, (Bracket_Height /2) - Bracket_Wall -Fitting_Distance ];
+// Final object rotation
+origin_rotation = [90,0,0];
+// this is the general tolerance used for slip-fittings
+tolerance = 0.1;
+
+
+
 
 module door_bearing(paint_color=[0.8,0.5,0.5,1])
 {
-  color(paint_color)
-  translate([0,-Bearing_Width/2,0])
-    scale([2,2,2])
-      rotate([90,0,0])
-        import("stl/608v2_0.stl");
+  translate(origin) rotate(origin_rotation)
+  {
+    color(paint_color)
+    translate([0,0,Bearing_Width/2])
+      scale([2,2,2])
+          import("stl/608v2_0.stl");
+  }
 }
 module door_wheel()
 {
