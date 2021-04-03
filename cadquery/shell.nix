@@ -31,6 +31,7 @@ pkgs.mkShell
   pkgs.inkscape
   # atom and vim for effective code editing
   pkgs.atom pkgs.vim
+  #figlet to do cool text
   pkgs.figlet
   ];
   #Run build-task post generation (TODO: makefile)
