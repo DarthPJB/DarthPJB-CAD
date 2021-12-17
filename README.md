@@ -1,5 +1,5 @@
 # DarthPJB-CAD
-OpenScad Projects created or maintained by, myself; John Bargman
+programmatic CAD Projects created or maintained by, myself; John Bargman
 
 Currently this contains a limited set of openScad and solvespace designs; though I may introduce my previous work in the future.
 
